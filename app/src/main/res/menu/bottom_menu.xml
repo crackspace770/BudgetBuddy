@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/reportFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/budgetFragment"
+        android:icon="@drawable/ic_budget"
+        android:title="Anggaran" />
+
+
+    <item
+        android:id="@+id/nav_transaction"
+        android:icon="@drawable/ic_add"
+        android:title=""/>
+
+    <item
+        android:id="@+id/tipsFragment"
+        android:icon="@drawable/ic_tips"
+        android:title="Tips" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile" />
+
+
+</menu>

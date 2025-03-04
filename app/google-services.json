@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "846572902624",
+    "project_id": "presence-app-get",
+    "storage_bucket": "presence-app-get.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:846572902624:android:fb195ca498c26502e5d885",
+        "android_client_info": {
+          "package_name": "com.android.budgetbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-ez7_Ca68CCvE5BT5RXegv8JU45kruqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">BudgetBuddy</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="webclientid">857837890100-l8j2qtb9ft7mb42dnm1l342l62ero0ij.apps.googleusercontent.com</string>
+    <string name="tag_view_category_title" translatable="false">tag_view_category_title</string>
+    <string name="edit">edit</string>
+    <string name="cd_icon">Icon</string>
+    <string name="expense">Pengeluaran</string>
+    <string name="income">Pemasukan</string>
+    <string name="name">Nama</string>
+    <string name="icon">Icon</string>
+    <string name="hint_category_name_expense">Masukkan Nama Kategori</string>
+    <string name="save">Simpan</string>
+    <string name="notif_text">Aktifkan Alarmmu agar tidak lupa untuk mencatat keuanganmu</string>
+    <string name="belum_ada_transaksi_silahkan_tambah_transaksimu">Belum ada transaksi Silahkan tambah transaksimu</string>
+
+    <string name="title_income">Tambah Kategori Pemasukan</string>
+    <string name="title_expense">Tambah Kategori Pengeluaran</string>
+
+    <string-array name="data_name">
+        <item>1. Buat Anggaran, Jangan Asal Belanja</item>
+        <item>2. Prinsip 50/30/20</item>
+        <item>3. Hindari Pengeluaran Kecil yang Tidak Penting</item>
+        <item>4. Pantau Pengeluaran dengan Rutin</item>
+        <item>5. Tetapkan Tujuan Keuangan yang Jelas</item>
+        <item>6. Berhemat, Tapi Tetap Nikmati Hidup</item>
+
+    </string-array>
+
+    <string-array name="data_description">
+        <item>Sebelum menerima gaji, buat daftar kebutuhan dan keinginan. Fokuslah pada kebutuhan terlebih dahulu. Ini akan membantumu mengontrol pengeluaran agar tidak boros. </item>
+
+        <item>Atur penghasilanmu dalam tiga bagian:\n
+1. 50% untuk kebutuhan: seperti makanan, transportasi, dan tagihan.\n
+2. 30% untuk keinginan: seperti hiburan, belanja, dan makan di luar.\n
+3. 20% untuk tabungan atau investasi: untuk masa depan. </item>
+
+        <item>Pembelian kecil seperti kopi harian atau camilan bisa membuat keuanganmu boros tanpa kamu sadari. Ganti kopi di kafe dengan menyeduh sendiri di rumah atau bawa bekal untuk bekerja. </item>
+
+        <item>Setiap akhir minggu atau bulan, cek kembali apakah pengeluaranmu sudah sesuai anggaran. Ini akan membantu mengoreksi kesalahan dan memperbaiki manajemen uang.</item>
+
+        <item>Tentukan apa yang ingin kamu capai, seperti liburan, beli rumah, atau pendidikan anak. Ini akan memotivasi kamu untuk lebih disiplin dalam menabung.</item>
+
+        <item>Berhemat tidak berarti kamu harus menahan diri dari hal-hal yang kamu nikmati. Sesekali, hadiahi dirimu dengan hal-hal yang membuat bahagia, asalkan sesuai anggaran.</item>
+
+
+    </string-array>
+
+    <string-array name="data_photo">
+        <item>@drawable/tips1</item>
+        <item>@drawable/tips2</item>
+        <item>@drawable/tips3</item>
+        <item>@drawable/tips4</item>
+        <item>@drawable/tips5</item>
+        <item>@drawable/tips6</item>
+    </string-array>
+
+    <string-array name="data_budget_name">
+        <item>Kendaraan</item>
+        <item>Makanan</item>
+        <item>Pakaian</item>
+        <item>Beauty</item>
+        <item>Travel</item>
+
+    </string-array>
+
+    <string-array name="budget_icon">
+        <item>@drawable/ex_kendaraan</item>
+        <item>@drawable/ex_makanan</item>
+        <item>@drawable/ex_pakaian</item>
+        <item>@drawable/ex_beauty</item>
+        <item>@drawable/ex_travel</item>
+    </string-array>
+
+
+
+</resources>

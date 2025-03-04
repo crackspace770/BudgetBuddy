@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/reportFragment">
+
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.android.budgetbuddy.ui.report.ReportFragment"
+        android:label="ReportFragment" />
+    <fragment
+        android:id="@+id/budgetFragment"
+        android:name="com.android.budgetbuddy.ui.budget.BudgetFragment"
+        android:label="BudgetFragment" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.android.budgetbuddy.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/tipsFragment"
+        android:name="com.android.budgetbuddy.ui.tips.TipsFragment"
+        android:label="TipsFragment" />
+</navigation>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/hijauu"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Transaksi"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        />
+
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Title"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/type_edit"
+        android:drawablePadding="16dp"
+        android:paddingStart="8dp"
+        android:inputType="text"
+        android:autofillHints="Title"
+        android:textColorHint="@color/hijautua"
+        android:textColor="@color/hijautua"
+        />
+
+    <EditText
+        android:id="@+id/etAmount"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Amount"
+        android:drawableStart="@drawable/cash_edit"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_input"
+        android:paddingStart="8dp"
+        android:drawablePadding="16dp"
+        android:inputType="numberDecimal"
+        android:autofillHints="Amount"
+        android:textColorHint="@color/hijautua"
+        android:textColor="@color/hijautua"
+        />
+
+    <AutoCompleteTextView
+        android:id="@+id/etCategory"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Category"
+        android:drawableStart="@drawable/title_edit"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_input"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+        android:drawablePadding="16dp"
+        android:inputType="none"
+        android:autofillHints="Category"
+        android:textColorHint="@color/hijautua"
+        android:textColor="@color/hijautua"
+        />
+
+
+    <EditText
+        android:id="@+id/etNote"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Note"
+        android:layout_marginBottom="8dp"
+        android:drawableStart="@drawable/note_edit"
+        android:background="@drawable/custom_input"
+        android:paddingStart="8dp"
+        android:drawablePadding="16dp"
+        android:inputType="text"
+        android:autofillHints="Note"
+        android:textColorHint="@color/hijautua"
+        android:textColor="@color/hijautua"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Simpan" />
+    </LinearLayout>
+</LinearLayout>

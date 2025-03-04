@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Main bubble background -->
+    <item>
+        <shape
+            android:shape="rectangle"
+            android:color="@color/hijauu">
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Triangle tail, positioned at the bottom-right -->
+    <item
+        android:gravity="end|bottom"
+        android:bottom="8dp"
+        android:right="16dp">
+        <bitmap android:src="@drawable/bg_triangle_tail" />
+    </item>
+
+</layer-list>
