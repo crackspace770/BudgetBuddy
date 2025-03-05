@@ -7,6 +7,7 @@ import com.android.budgetbuddy.data.di.Injection
 import com.android.budgetbuddy.data.preference.UserPreference
 import com.android.budgetbuddy.ui.auth.LoginViewModel
 import com.android.budgetbuddy.ui.category.CategoryViewModel
+import com.android.budgetbuddy.ui.profile.ProfileViewModel
 import com.android.budgetbuddy.ui.report.ReportViewModel
 import com.android.budgetbuddy.ui.splash.SplashViewModel
 
@@ -28,6 +29,10 @@ class ViewModelFactory(private val repository: BudgetRepository) : ViewModelProv
             }
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
                 SplashViewModel(repository) as T
+            }
+
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
 
 
