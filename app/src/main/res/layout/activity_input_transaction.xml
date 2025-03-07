@@ -6,50 +6,68 @@
     android:layout_height="match_parent"
     android:background="@color/hijautua">
 
-    <LinearLayout
-        android:id="@+id/toolbarLinear"
+
+    <Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:orientation="vertical"
-        android:background="@color/hijauu"
-        >
+        android:layout_height="56dp"
+        android:background="@color/hijautuaa"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
 
-        <Toolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentInsetStart="0dp"
-            android:contentInsetLeft="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
+            <!-- Back Button (Aligned Left) -->
             <ImageButton
                 android:id="@+id/backBtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="15dp"
-                android:background="@drawable/ic_arrow_back_ios" />
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
 
-        </Toolbar>
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_arrow_back_ios"
+                android:contentDescription="Back" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsmedium"
-            android:textStyle="bold"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="0dp"
-            android:paddingTop="5dp"
-            android:text="Tambah\nTransaksi"
-            android:textColor="@color/hijaucantik"
-            android:textSize="28sp" />
+            <!-- Spacer to Push Title to Center -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-    </LinearLayout>
+            <!-- Title (Centered) -->
+            <TextView
+                android:id="@+id/titleTransaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Tambah Transaksi"
+                android:textColor="@color/hijaucantik"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Spacer for Symmetry (Same as Before Title) -->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </Toolbar>
+
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbarLinear">
+        android:layout_below="@+id/toolbar">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -232,12 +250,14 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/noteTIL"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:layout_marginVertical="25dp"
                 android:backgroundTint="@color/hijauu"
-                android:paddingHorizontal="30dp"
+                android:paddingHorizontal="100dp"
+                android:paddingVertical="15dp"
                 android:text="Simpan"
                 android:textColor="@color/hijaumudabanget"
                 android:textSize="15sp"

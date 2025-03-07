@@ -80,7 +80,8 @@ class InputTransactionActivity:AppCompatActivity(), CategorySelectionFragment.On
                     type = 1 // Expense
                     rbExpense.setBackgroundResource(R.drawable.radio_selected_expense)
                     rbIncome.setBackgroundResource(R.drawable.radio_not_selected)
-                    toolbarLinear.setBackgroundResource(R.color.hijauu)
+                    toolbar.setBackgroundResource(R.color.hijauu)
+                    titleTransaction.text = "Tambah Pengeluaran"
                     saveButton.backgroundTintList = getColorStateList(R.color.hijauu)
                     window.statusBarColor = ContextCompat.getColor(this@InputTransactionActivity, R.color.hijauu)
                 }
@@ -89,7 +90,8 @@ class InputTransactionActivity:AppCompatActivity(), CategorySelectionFragment.On
                     type = 2 // Income
                     rbIncome.setBackgroundResource(R.drawable.radio_selected_income)
                     rbExpense.setBackgroundResource(R.drawable.radio_not_selected)
-                    toolbarLinear.setBackgroundResource(R.color.hijautuaa)
+                    toolbar.setBackgroundResource(R.color.hijautuaa)
+                    titleTransaction.text = "Tambah Pemasukan"
                     saveButton.backgroundTintList = getColorStateList(R.color.hijautuaa)
                     window.statusBarColor = ContextCompat.getColor(this@InputTransactionActivity, R.color.hijautuaa)
                 }

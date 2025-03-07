@@ -89,10 +89,10 @@ class ReportFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-        binding.btnLogout.setOnClickListener {
-            showExitConfirmationDialog()
-        }
+//
+//        binding.btnLogout.setOnClickListener {
+//            showExitConfirmationDialog()
+//        }
 
 
         getFullTransaction()
@@ -114,21 +114,6 @@ class ReportFragment:Fragment() {
         }, 200)
 
         dateRangePicker()
-
-//        viewModel.getNotificationSettings().observe(viewLifecycleOwner) { isNotificationActive ->
-//            binding.switchAlarm.isChecked = isNotificationActive
-//        }
-
-
-//        binding.switchAlarm.setOnCheckedChangeListener { _, isChecked ->
-//            viewModel.saveNotificationSetting(isChecked)
-//            if (isChecked) {
-//                NotificationUtils.scheduleDailyNotification(requireContext())
-//            } else {
-//                NotificationUtils.cancelNotifications(requireContext())
-//            }
-//        }
-
         swipeRefresh()
 
 
@@ -235,9 +220,10 @@ class ReportFragment:Fragment() {
             val userName = email.substringBefore("@")
 
             binding.apply {
-                imgProfile.loadImageUrl(fotoProfil, requireContext())
-                tvEmail.text = email
-                tvName.text = userName
+//                imgProfile.loadImageUrl(fotoProfil, requireContext())
+//                tvEmail.text = email
+//                tvName.text = userName
+                greeting.text = "Hello, $userName"
             }
         }
     }
@@ -419,47 +405,41 @@ class ReportFragment:Fragment() {
             FirebaseFirestore.getInstance().collection("user").document(it).collection("transaction")
         }
 
-        if (transactionRef != null) {
-            transactionRef
-                .whereGreaterThan("date", dateStart - 86400000)
-                .whereLessThanOrEqualTo("date", dateEnd)
-                .get()
-                .addOnSuccessListener { documents ->
-                    val transactionList = arrayListOf<Transaction>()
+        transactionRef?.whereGreaterThan("date", dateStart - 86400000)
+            ?.whereLessThanOrEqualTo("date", dateEnd)?.get()?.addOnSuccessListener { documents ->
+            val transactionList = arrayListOf<Transaction>()
 
-                    for (document in documents) {
-                        val transactionData = document.toObject(Transaction::class.java)
-                        transactionList.add(transactionData)
+            for (document in documents) {
+                val transactionData = document.toObject(Transaction::class.java)
+                transactionList.add(transactionData)
+            }
+
+            if (transactionList.isEmpty()) {
+                amountExpense = 0.0
+                amountIncome = 0.0
+                allTimeExpense = 0.0
+                allTimeIncome = 0.0
+            } else {
+                for (transaction in transactionList) {
+                    if (transaction.type == 1) {
+                        amountExpenseTemp += transaction.amount ?: 0.0
+                    } else if (transaction.type == 2) {
+                        amountIncomeTemp += transaction.amount ?: 0.0
                     }
-
-                    if (transactionList.isEmpty()) {
-                        amountExpense = 0.0
-                        amountIncome = 0.0
-                        allTimeExpense = 0.0
-                        allTimeIncome = 0.0
-                    } else {
-                        for (transaction in transactionList) {
-                            if (transaction.type == 1) {
-                                amountExpenseTemp += transaction.amount ?: 0.0
-                            } else if (transaction.type == 2) {
-                                amountIncomeTemp += transaction.amount ?: 0.0
-                            }
-                        }
-                    }
-
-                    amountExpense = amountExpenseTemp
-                    amountIncome = amountIncomeTemp
-                    allTimeExpense = amountExpenseTemp
-                    allTimeIncome = amountIncomeTemp
-
-                    // Now that data is fetched, update the UI
-                    showAllTimeRecap()
-                    setupPieChart()
-                    setupBarChart()
                 }
-                .addOnFailureListener { e ->
-                    Log.w("FirestoreError", "Error fetching transactions: ${e.message}")
-                }
+            }
+
+            amountExpense = amountExpenseTemp
+            amountIncome = amountIncomeTemp
+            allTimeExpense = amountExpenseTemp
+            allTimeIncome = amountIncomeTemp
+
+            // Now that data is fetched, update the UI
+            showAllTimeRecap()
+            setupPieChart()
+            setupBarChart()
+        }?.addOnFailureListener { e ->
+            Log.w("FirestoreError", "Error fetching transactions: ${e.message}")
         }
     }
 

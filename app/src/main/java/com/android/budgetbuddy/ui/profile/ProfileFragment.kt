@@ -79,8 +79,8 @@ class ProfileFragment:Fragment() {
 
             binding.apply {
                 imgProfile.loadImageUrl(fotoProfil, requireContext())
-                tvEmailProfile.text = email
-                tvNamaProfile.text = userName
+                tvEmail.text = email
+                tvName.text = userName
             }
         }
 

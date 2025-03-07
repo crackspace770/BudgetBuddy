@@ -14,7 +14,7 @@ import com.android.budgetbuddy.ui.transaction.InputTransactionActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    private var lastSelectedItemId: Int = R.id.reportFragment // Default to Home
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,36 +23,50 @@ class MainActivity : AppCompatActivity() {
 
         val homeFragment = ReportFragment()
         val budgetFragment = BudgetFragment()
-        val laporanFragment = TipsFragment()
+        val tipsFragment = TipsFragment()
         val profileFragment = ProfileFragment()
 
-        binding.chipAppBar.setItemSelected(R.id.reportFragment,true)
+        // Set default fragment
+        binding.chipAppBar.setItemSelected(lastSelectedItemId, true)
         makeCurrentFragment(homeFragment)
+
         binding.chipAppBar.setOnItemSelectedListener {
-            when (it){
-                R.id.reportFragment -> makeCurrentFragment(homeFragment)
-                R.id.budgetFragment -> makeCurrentFragment(budgetFragment)
-                R.id.tipsFragment -> makeCurrentFragment(laporanFragment)
-                R.id.profileFragment -> makeCurrentFragment(profileFragment)
-
-
+            when (it) {
+                R.id.reportFragment -> {
+                    lastSelectedItemId = R.id.reportFragment
+                    makeCurrentFragment(homeFragment)
+                }
+                R.id.budgetFragment -> {
+                    lastSelectedItemId = R.id.budgetFragment
+                    makeCurrentFragment(budgetFragment)
+                }
+                R.id.tipsFragment -> {
+                    lastSelectedItemId = R.id.tipsFragment
+                    makeCurrentFragment(tipsFragment)
+                }
+                R.id.profileFragment -> {
+                    lastSelectedItemId = R.id.profileFragment
+                    makeCurrentFragment(profileFragment)
+                }
                 R.id.nav_transaction -> {
+                    // Save last selected tab before navigating
                     val intent = Intent(this, InputTransactionActivity::class.java)
                     startActivity(intent)
                 }
             }
-
         }
-
-
     }
-    private fun makeCurrentFragment(fragment: Fragment) { //method 2
+
+    override fun onResume() {
+        super.onResume()
+        // Re-select the last selected item when returning from another activity
+        binding.chipAppBar.setItemSelected(lastSelectedItemId, true)
+    }
+
+    private fun makeCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_wrapper, fragment)
             commit()
         }
     }
-
-
-
 }
