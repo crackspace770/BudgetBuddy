@@ -20,7 +20,7 @@ object CategoryOptions {
 
     fun incomeCategory(): List<CategoryItem> {
         return listOf(
-            CategoryItem(1, "Gaji", R.drawable.in_gaji, categoryType = 2),
+            CategoryItem(1, "Gaji", R.drawable.add_gaji, categoryType = 2),
             CategoryItem(2, "Menang Lomba", R.drawable.in_lomba, categoryType = 2),
             CategoryItem(3, "Bonus", R.drawable.in_bonus, categoryType = 2)
         )
