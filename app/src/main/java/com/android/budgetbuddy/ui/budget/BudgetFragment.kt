@@ -76,7 +76,7 @@ class BudgetFragment:Fragment() {
 
 
     private fun listenForBudgetUpdates() {
-        // Remove any existing listener to avoid duplicates
+
         budgetListener?.remove()
 
         if (userId.isNotEmpty()) {

@@ -72,30 +72,14 @@ class InputTransactionActivity:AppCompatActivity(), CategorySelectionFragment.On
             finish()
         }
 
-        binding.apply {
-            typeRadioGroup.setOnCheckedChangeListener { _, checkedID ->
-                etCategory.text.clear()
+        // ✅ Set "Expense" as the default selected type
+        binding.rbExpense.isChecked = true
+        updateUIForSelectedType(1)  // Manually trigger UI update
 
-                if (checkedID == rbExpense.id) {
-                    type = 1 // Expense
-                    rbExpense.setBackgroundResource(R.drawable.radio_selected_expense)
-                    rbIncome.setBackgroundResource(R.drawable.radio_not_selected)
-                    toolbar.setBackgroundResource(R.color.hijauu)
-                    titleTransaction.text = "Tambah Pengeluaran"
-                    saveButton.backgroundTintList = getColorStateList(R.color.hijauu)
-                    window.statusBarColor = ContextCompat.getColor(this@InputTransactionActivity, R.color.hijauu)
-                }
-
-                if (checkedID == rbIncome.id) {
-                    type = 2 // Income
-                    rbIncome.setBackgroundResource(R.drawable.radio_selected_income)
-                    rbExpense.setBackgroundResource(R.drawable.radio_not_selected)
-                    toolbar.setBackgroundResource(R.color.hijautuaa)
-                    titleTransaction.text = "Tambah Pemasukan"
-                    saveButton.backgroundTintList = getColorStateList(R.color.hijautuaa)
-                    window.statusBarColor = ContextCompat.getColor(this@InputTransactionActivity, R.color.hijautuaa)
-                }
-            }
+        binding.typeRadioGroup.setOnCheckedChangeListener { _, checkedID ->
+            etCategory.text.clear()
+            val selectedType = if (checkedID == binding.rbExpense.id) 1 else 2
+            updateUIForSelectedType(selectedType)
         }
 
         val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
@@ -114,6 +98,29 @@ class InputTransactionActivity:AppCompatActivity(), CategorySelectionFragment.On
             }
         }
     }
+
+    private fun updateUIForSelectedType(selectedType: Int) {
+        binding.apply {
+            type = selectedType
+
+            if (selectedType == 1) { // Expense
+                rbExpense.setBackgroundResource(R.drawable.radio_selected_expense)
+                rbIncome.setBackgroundResource(R.drawable.radio_not_selected)
+                toolbar.setBackgroundResource(R.color.hijauu)
+                titleTransaction.text = "Tambah Pengeluaran"
+                saveButton.backgroundTintList = getColorStateList(R.color.hijauu)
+                window.statusBarColor = ContextCompat.getColor(this@InputTransactionActivity, R.color.hijauu)
+            } else { // Income
+                rbIncome.setBackgroundResource(R.drawable.radio_selected_income)
+                rbExpense.setBackgroundResource(R.drawable.radio_not_selected)
+                toolbar.setBackgroundResource(R.color.hijautuaa)
+                titleTransaction.text = "Tambah Pemasukan"
+                saveButton.backgroundTintList = getColorStateList(R.color.hijautuaa)
+                window.statusBarColor = ContextCompat.getColor(this@InputTransactionActivity, R.color.hijautuaa)
+            }
+        }
+    }
+
 
     override fun onCategorySelected(categoryItem: CategoryItem) {
         selectedCategoryItem = categoryItem  // Store the selected category with its icon
@@ -237,12 +244,7 @@ class InputTransactionActivity:AppCompatActivity(), CategorySelectionFragment.On
     }
 
 
-//    private fun getSelectedCategoryItem(): CategoryItem? {
-//        val selectedCategoryName = etCategory.text.toString().trim()
-//        val categoryList = if (type == 1) CategoryOptions.expenseCategory() else CategoryOptions.incomeCategory()
-//
-//        return categoryList.find { it.name.equals(selectedCategoryName, ignoreCase = true) }
-//    }
+
 
     private fun uploadIcon(iconResId: Int, callback: (String?) -> Unit) {
         val drawable = AppCompatResources.getDrawable(this, iconResId)
